@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload CSV for Prediction</title>
+</head>
+<body>
+    <h1>Upload CSV File for Prediction</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <h2>Prediction Results:</h2>
+        <ul>
+            {% for pred in prediction %}
+                <li>{{ pred }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
